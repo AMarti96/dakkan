@@ -1,0 +1,15 @@
+<md-dialog style="background-color: white" ng-controller="advCtrl">
+    <div   ng-cloak class="md-inline-form" >
+        <br>
+        <div layout="row" layout-align="center center">
+            <md-input-container id="offer">
+                <label style="color: #000000;">Oferta</label>
+                <textarea ng-model="offer"> </textarea>
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="center center">
+            <b class="button" ng-click="doOffer($event)">Enviar oferta</b>
+        </div>
+    <br>
+    </div>
+</md-dialog>

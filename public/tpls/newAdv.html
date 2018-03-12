@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo anuncio</title>
+</head>
+<body>
+<br>
+<div layout="row">
+    <div>
+        <img ngf-src="file" width="389" height="400">
+        <br><br>
+        <form name="form">
+            {{file.name}}
+            <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                 ngf-accept="'image/*'" ngf-max-size="20MB">Select image</div>
+            <div>
+                <button type="button" class="btn btn-outline-primary" ng-click="addNewAdv($event)">Publicar anuncio</button>
+                <button type="button" class="btn btn-outline-danger" ng-click="cancelAdv($event)">Cancelar</button>
+            </div>
+        </form>
+        <br><br>
+    </div>
+    &nbsp&nbsp&nbsp
+    <div flex ng-cloak class="md-block">
+        <div>
+            <br>
+            <md-input-container>
+                <label>Título</label>
+                <input ng-model="tittle">
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container class="md-block">
+                <label>Descripción del producto</label>
+                <input ng-model="productDesc">
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container class="md-block">
+                <label>Qué se busca a cambio</label>
+                <input ng-model="productInterest">
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container>
+                <label>Categoria</label>
+                <md-select ng-model="category" placeholder="Elige la categoria" md-selected-text="categoryAdv()">
+                    <md-optgroup label="Categoria">
+                        <md-option ng-value="t.title" ng-repeat="t in classes">{{t.title}}</md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container>
+        </div>
+    </div>
+</div>
+</body>
+</html>

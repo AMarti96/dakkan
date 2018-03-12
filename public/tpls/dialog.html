@@ -1,0 +1,33 @@
+<md-dialog style="background-color: white">
+    <div ng-controller="mainCtrl"  ng-cloak class="md-inline-form" >
+        <br>
+        <div layout="row" layout-align="center center">
+            <md-input-container id="login">
+                <label style="color: #000000;">Name</label>
+                <input ng-model="userName">
+            </md-input-container>
+        </div>
+        <br>
+        <div layout="row" layout-align="center center">
+            <md-input-container id="login2">
+                <label style="color: #000000;">Password</label>
+                <input ng-model="userPass" type="password">
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="center center">
+            <b class="button" ng-click="doLogin()">Iniciar Sesión</b>
+        </div>
+        <div layout="row" layout-align="center center">
+            <b class="button" ng-click="doRegister()">Registro</b>
+
+        </div>
+
+        <div layout="row" layout-align="center center">
+            <b class="button" ng-click="localLogin()">Local Login</b>
+        </div>
+        <div layout="row" layout-align="center center">
+            <a class="button" href= "/auth/facebook">Facebook Login</a>
+        </div>
+    <br>
+    </div>
+</md-dialog>

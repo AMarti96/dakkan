@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{adv.title}}</title>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div layout="row" layout-sm="column">
+    <div flex="58" >
+        <img src="../images//{{adv.owner}}-{{adv.title}}.png" style="width:650px; height:570px; padding-left: 50px; padding-top: 9px;">
+    </div>
+<div ng-cloak>
+        <md-content style="background: transparent">
+            <div flex="120" layout="column">
+                <div flex="70" layout="column">
+                    <md-card >
+                        <md-card-header>
+                            <md-card-avatar>
+                                <img ng-src={{image}} class="rounded-circle" ng-click="profile()">
+                            </md-card-avatar>
+                            <md-card-header-text>
+                                <span class="md-title">{{adv.ownername}}</span>
+                                <span class="md-subhead">Usuario hace {{dateuser}}</span>
+                                <span class="md-subhead">Anuncio creado hace {{dateadv}}</span>
+                            </md-card-header-text>
+                            <br><br>
+                        </md-card-header>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">Artículo: {{adv.title}}</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <span class="md-subhead">Descripción: {{adv.description}}</span>
+                        </md-card-content>
+                        <md-card-content>
+                            <span class="md-subhead">Interesado en: {{adv.exchange}}</span>
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="start center">
+                            <md-button ng-if="user!=adv.owner && !fav"  class="md-icon-button md-primary" aria-label="Like" ng-click="favorite()">
+                                <md-icon md-svg-src="../img/like.svg"></md-icon>
+                            </md-button>
+
+                            <md-button ng-if="user!=adv.owner"  class="md-icon-button md-primary" aria-label="Mail" ng-click="emailuser($event)" >
+                                <md-icon md-svg-src="../img/email.svg"></md-icon>
+                            </md-button>
+
+                            <md-button ng-if="user!=adv.owner && fav"  class="md-icon-button md-primary" aria-label="Dislike" ng-click="unfavorite($event)">
+                                <md-icon md-svg-src="../img/error.svg"></md-icon>
+                            </md-button>
+
+                            <md-button ng-if="user===adv.owner" class="md-icon-button md-primary" aria-label="Delete" ng-click="delete($event)">
+                                <md-icon md-svg-src="../img/delete.svg"></md-icon>
+                            </md-button>
+                        </md-card-actions>
+                    </md-card>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>
+<br><br>
+<h3>Localización donde se ha subido el anuncio</h3>
+    <ng-map zoom="16" center="{{location}}">
+        <marker position="{{location}}"/>
+        <!--<shape name="circle" radius="400" center="[40.74,-74.18]" radius="4000" />-->
+        <control name="overviewMap" opened="true" />
+    </ng-map>
+</body>
